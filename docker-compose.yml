@@ -26,7 +26,7 @@ services:
       # rabbitmq:
       #   condition: service_healthy
     volumes:
-      - ./var/log/:/app/log
+      - /var/log/gunicorn:/var/log/gunicorn
     networks:
       - app-network
 
@@ -54,6 +54,8 @@ services:
         condition: service_started
       # rabbitmq:
       #   condition: service_healthy
+    volumes:
+      - /var/log/subscriber:/var/log/subscriber
     networks:
       - app-network
 
